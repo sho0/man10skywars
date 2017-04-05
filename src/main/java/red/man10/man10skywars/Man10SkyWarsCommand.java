@@ -8,9 +8,9 @@ import org.bukkit.command.CommandSender;
  * Created by sho-pc on 2017/04/05.
  */
 public class Man10SkyWarsCommand implements CommandExecutor {
-    private final Man10skywars plugin;
+    private final Man10SkyWars  plugin;
 
-    public Man10SkyWarsCommand(Man10skywars plugin) {
+    public Man10SkyWarsCommand(Man10SkyWars  plugin) {
         this.plugin = plugin;
     }
 
