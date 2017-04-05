@@ -1,17 +1,12 @@
 package red.man10.man10skywars;
 
-
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
-import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -28,6 +23,7 @@ public final class Man10SkyWars extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         // Plugin startup logic
+
         this.getServer().getPluginManager().registerEvents(this,this);
         getCommand("msw").setExecutor(new Man10SkyWarsCommand(this));
         putPlayersInArrayList();
@@ -43,12 +39,19 @@ public final class Man10SkyWars extends JavaPlugin implements Listener {
     //==============================
 
 
+    @EventHandler
+    public void onInteract(PlayerInteractEvent e){
+
+
+    }
+
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if(cmd.getName().equalsIgnoreCase("fpl")){
             Player p = (Player) sender;
             p.sendMessage("Plugins (0): ");
+
         }
         return true;
     }
@@ -61,7 +64,7 @@ public final class Man10SkyWars extends JavaPlugin implements Listener {
         }
     }
 
-
+    //Kt7UT9L80mxy
     @EventHandler
     public void onLogin(PlayerJoinEvent e){
         playerList.add(e.getPlayer());
