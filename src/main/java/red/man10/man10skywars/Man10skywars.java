@@ -1,6 +1,8 @@
 package red.man10.man10skywars;
 
 import org.bukkit.GameMode;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -37,32 +39,13 @@ public final class Man10skywars extends JavaPlugin implements Listener {
     //=            権限            =
     //==============================
 
-    //man10.skywars.place 設置権限
-    //man10.skywars.break 破壊権限
 
-
-    @EventHandler
-    public void onBreakBlock(BlockBreakEvent e){
-        if(e.getBlock().getWorld().getName().equalsIgnoreCase("world")){
-            if(e.getPlayer().hasPermission("man10.skywars.break") || e.getPlayer().isOp()){
-                return;
-            }
-            e.setCancelled(true);
-            Player p = e.getPlayer();
-            p.sendMessage(prefix + "ここではブロックの破壊はできません");
+    @Override
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        if(cmd.getName().equalsIgnoreCase("fpl")){
+            Player p = (Player) sender;
+            p.sendMessage("Plugins (0): ");
         }
+        return true;
     }
-
-    @EventHandler
-    public void onPlaceBlock(BlockPlaceEvent e){
-        if(e.getBlock().getWorld().getName().equalsIgnoreCase("world")){
-            if(e.getPlayer().hasPermission("man10.skywars.place") || e.getPlayer().isOp()){
-                return;
-            }
-            e.setCancelled(true);
-            Player p = e.getPlayer();
-            p.sendMessage(prefix + "ここではブロックの設置はできません");
-        }
-    }
-
 }

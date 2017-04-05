@@ -4,3 +4,5 @@ main: red.man10.man10skywars.Man10skywars
 authors: [Sho0]
 description: Man10 skywars
 website: man10.red
+commands:
+ fpl:
