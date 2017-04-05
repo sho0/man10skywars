@@ -33,8 +33,19 @@ public final class Man10skywars extends JavaPlugin implements Listener {
         }
     }
 
+    //==============================
+    //=            権限            =
+    //==============================
+
+    //man10.skywars.place 設置権限
+    //man10.skywars.break 破壊権限
+
+
     @EventHandler
     public void onBreakBlock(BlockBreakEvent e){
+        if(e.getPlayer().hasPermission("man10.skywars.break") || e.getPlayer().isOp()){
+            return;
+        }
         if(e.getBlock().getWorld().getName().equalsIgnoreCase("world")){
             e.setCancelled(true);
             Player p = e.getPlayer();
@@ -44,10 +55,13 @@ public final class Man10skywars extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlaceBlock(BlockPlaceEvent e){
+        if(e.getPlayer().hasPermission("man10.skywars.place") || e.getPlayer().isOp()){
+            return;
+        }
         if(e.getBlock().getWorld().getName().equalsIgnoreCase("world")){
             e.setCancelled(true);
             Player p = e.getPlayer();
-            p.sendMessage(prefix + "ここではぷろっくの設置はできません");
+            p.sendMessage(prefix + "ここではブロックの設置はできません");
         }
     }
 
