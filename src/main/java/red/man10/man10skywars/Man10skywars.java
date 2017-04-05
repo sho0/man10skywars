@@ -20,6 +20,7 @@ public final class Man10skywars extends JavaPlugin implements Listener {
     public void onEnable() {
         // Plugin startup logic
         this.getServer().getPluginManager().registerEvents(this,this);
+        getCommand("mfc").setExecutor(new Man10SkyWarsCommand(this));
     }
 
     @Override
